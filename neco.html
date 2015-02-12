@@ -1,0 +1,124 @@
+wis automatic registering tool
+connection established
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>AGS - Agentní a multiagentní systémy</title>
+<script type="text/javascript">
+var xmlreq;
+var xmlinit;
+var xmlrun;
+var xmltid;
+var cslc;
+function scsl(fid)
+{
+    cslc = fid;
+    return true;
+}
+function csl_sub(vars)
+{
+    var uri = '/FIT/st/course-sl.php?xml=147e2102d803eae300d2af8331a1605c4f4c78cc,1423598717&'+vars;
+    if (!cslc) return true;
+    if (cslc.substr(0,3) == 'lof' && !confirm('Urèitì chcete zru¹it registraci tohoto termínu?')) return false;
+    if (!xmlinit) {
+	xmlinit = true;
+	if (window.XMLHttpRequest) {
+	    try { xmlreq = new XMLHttpRequest(); } catch (e) { }
+	} else 
+	if (window.ActiveXObject) {
+	    try { xmlreq = new ActiveXObject("Msxml2.XMLHTTP"); } catch (e) { 
+		try { xmlreq = new ActiveXObject("Microsoft.XMLHTTP"); } catch (e) { }
+	    }
+	}
+    }
+    if (!xmlreq) return true;
+    if (xmlrun || xmlreq.readyState == 2 || xmlreq.readyState == 3) {
+	return false;
+    }
+    uri += '&' + cslc + '=xml';
+    cslc = '';
+    xmlrun = true;
+    xmlreq.open('GET', uri, true);
+    if (typeof(xmlreq.ontimeout) == 'function') {
+	xmlreq.timeout = 3000;
+	xmlreq.ontimeout = xml_timeout;
+    } else {
+	if (xmltid) window.clearTimeout(xmltid);
+	xmltid = window.setTimeout('xml_timeout()', 3000);
+    }
+    xmlreq.onreadystatechange = xml_finish;
+    if (xmlreq.overrideMimeType) xmlreq.overrideMimeType('text/xml');
+    xmlreq.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    window.status = 'XML http request sent...';
+    xmlreq.send(null);
+    return false;
+}
+function xml_timeout()
+{
+    window.status = 'XML http request failed!';
+    if (xmltid) {
+	xmltid = 0;
+	if (xmlrun) {
+	    xmlrun = false;
+	    xmlreq.abort();
+	}
+    } else {
+	xmlrun = false;
+    }
+    xmlreq = null;
+}
+function xml_finish()
+{
+    var id,i,c,cur,stat;
+    if (!xmlrun || xmlreq.readyState != 4) return;
+    if (xmltid) {
+	window.clearTimeout(xmltid);
+	xmltid = 0;
+    }
+    xmlrun = false;
+    if (xmlreq.status != 200 && xmlreq.status != 304) return;
+    window.status = 'XML http response received...';
+    var tms = (new Date).getTime();
+    var items = xmlreq.responseXML.getElementsByTagName("item");
+    if (items.length == 0) {
+	var err = xmlreq.responseXML.getElementsByTagName("error");
+	if (err.length == 1) {
+	    alert(err[0].firstChild.nodeValue);
+	}
+    }
+    for (i = 0; i < items.length; i++) {
+	id = items[i].getAttribute('id');
+	if (!id) continue;
+	c = document.getElementById('csl_'+id);
+	if (!c) continue;
+	if (items[i].firstChild && items[i].firstChild.length > 10) {
+	    c.innerHTML = items[i].firstChild.nodeValue;
+	}
+	cur = items[i].getAttribute('cur');
+	if (cur != null) {
+	    c.nextSibling.innerHTML = cur;
+	}
+	stat = items[i].getAttribute('stat');
+	if (!stat) continue;
+	if (stat == 2) c.parentNode.bgColor = "#FFF8DC";
+	else
+	if (stat == 3) c.parentNode.bgColor = "#dfe7cf";
+    }
+    while ((new Date).getTime() -  tms < 200) i++;
+    window.status = 'XML http update done';
+}
+</script>
+<link rel="SHORTCUT ICON" href="/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/common/style.css" type="text/css">
+<script type="text/javascript">
+var ClockMonths = new Array("ledna", "února", "bøezna", "dubna", "kvìtna", "èervna",
+"èervence", "srpna", "záøí", "øíjna", "listopadu", "prosince");
+var ClockElm;
+var ClockDiff=0;
+
+function ClockInit()
+{
+    if (!document.getElementById) return;
+    ClockElm = document.getElementById('clock');
+    if (!ClockElm || !ClockElm.innerHTML) re
+ending

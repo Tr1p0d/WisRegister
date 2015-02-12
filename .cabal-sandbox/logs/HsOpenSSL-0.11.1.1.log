@@ -1,0 +1,41 @@
+Configuring HsOpenSSL-0.11.1.1...
+Building HsOpenSSL-0.11.1.1...
+Preprocessing library HsOpenSSL-0.11.1.1...
+[ 1 of 33] Compiling OpenSSL.SSL.Option ( dist/dist-sandbox-83693582/build/OpenSSL/SSL/Option.hs, dist/dist-sandbox-83693582/build/OpenSSL/SSL/Option.o )
+[ 2 of 33] Compiling OpenSSL.ERR      ( OpenSSL/ERR.hs, dist/dist-sandbox-83693582/build/OpenSSL/ERR.o )
+[ 3 of 33] Compiling OpenSSL.Stack    ( OpenSSL/Stack.hs, dist/dist-sandbox-83693582/build/OpenSSL/Stack.o )
+[ 4 of 33] Compiling OpenSSL.DH.Internal ( OpenSSL/DH/Internal.hs, dist/dist-sandbox-83693582/build/OpenSSL/DH/Internal.o )
+[ 5 of 33] Compiling OpenSSL.Objects  ( dist/dist-sandbox-83693582/build/OpenSSL/Objects.hs, dist/dist-sandbox-83693582/build/OpenSSL/Objects.o )
+[ 6 of 33] Compiling OpenSSL.EVP.Base64 ( OpenSSL/EVP/Base64.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/Base64.o )
+[ 7 of 33] Compiling OpenSSL.Utils    ( OpenSSL/Utils.hs, dist/dist-sandbox-83693582/build/OpenSSL/Utils.o )
+[ 8 of 33] Compiling OpenSSL.EVP.Internal ( dist/dist-sandbox-83693582/build/OpenSSL/EVP/Internal.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/Internal.o )
+[ 9 of 33] Compiling OpenSSL.EVP.Cipher ( OpenSSL/EVP/Cipher.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/Cipher.o )
+[10 of 33] Compiling OpenSSL.EVP.Digest ( dist/dist-sandbox-83693582/build/OpenSSL/EVP/Digest.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/Digest.o )
+[11 of 33] Compiling OpenSSL.Cipher   ( dist/dist-sandbox-83693582/build/OpenSSL/Cipher.hs, dist/dist-sandbox-83693582/build/OpenSSL/Cipher.o )
+[12 of 33] Compiling OpenSSL.BIO      ( OpenSSL/BIO.hs, dist/dist-sandbox-83693582/build/OpenSSL/BIO.o )
+[13 of 33] Compiling OpenSSL.Random   ( OpenSSL/Random.hs, dist/dist-sandbox-83693582/build/OpenSSL/Random.o )
+[14 of 33] Compiling OpenSSL.BN       ( dist/dist-sandbox-83693582/build/OpenSSL/BN.hs, dist/dist-sandbox-83693582/build/OpenSSL/BN.o )
+[15 of 33] Compiling OpenSSL.DSA      ( dist/dist-sandbox-83693582/build/OpenSSL/DSA.hs, dist/dist-sandbox-83693582/build/OpenSSL/DSA.o )
+[16 of 33] Compiling OpenSSL.RSA      ( dist/dist-sandbox-83693582/build/OpenSSL/RSA.hs, dist/dist-sandbox-83693582/build/OpenSSL/RSA.o )
+[17 of 33] Compiling OpenSSL.EVP.PKey ( dist/dist-sandbox-83693582/build/OpenSSL/EVP/PKey.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/PKey.o )
+[18 of 33] Compiling OpenSSL.EVP.Open ( OpenSSL/EVP/Open.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/Open.o )
+[19 of 33] Compiling OpenSSL.EVP.Seal ( OpenSSL/EVP/Seal.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/Seal.o )
+[20 of 33] Compiling OpenSSL.EVP.Sign ( OpenSSL/EVP/Sign.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/Sign.o )
+[21 of 33] Compiling OpenSSL.EVP.Verify ( OpenSSL/EVP/Verify.hs, dist/dist-sandbox-83693582/build/OpenSSL/EVP/Verify.o )
+[22 of 33] Compiling OpenSSL.DH       ( OpenSSL/DH.hs, dist/dist-sandbox-83693582/build/OpenSSL/DH.o )
+[23 of 33] Compiling OpenSSL.ASN1     ( dist/dist-sandbox-83693582/build/OpenSSL/ASN1.hs, dist/dist-sandbox-83693582/build/OpenSSL/ASN1.o )
+[24 of 33] Compiling OpenSSL.X509.Name ( dist/dist-sandbox-83693582/build/OpenSSL/X509/Name.hs, dist/dist-sandbox-83693582/build/OpenSSL/X509/Name.o )
+[25 of 33] Compiling OpenSSL.X509     ( OpenSSL/X509.hs, dist/dist-sandbox-83693582/build/OpenSSL/X509.o )
+[26 of 33] Compiling OpenSSL.X509.Request ( OpenSSL/X509/Request.hs, dist/dist-sandbox-83693582/build/OpenSSL/X509/Request.o )
+[27 of 33] Compiling OpenSSL.X509.Revocation ( dist/dist-sandbox-83693582/build/OpenSSL/X509/Revocation.hs, dist/dist-sandbox-83693582/build/OpenSSL/X509/Revocation.o )
+[28 of 33] Compiling OpenSSL.X509.Store ( OpenSSL/X509/Store.hs, dist/dist-sandbox-83693582/build/OpenSSL/X509/Store.o )
+[29 of 33] Compiling OpenSSL.PKCS7    ( dist/dist-sandbox-83693582/build/OpenSSL/PKCS7.hs, dist/dist-sandbox-83693582/build/OpenSSL/PKCS7.o )
+[30 of 33] Compiling OpenSSL.PEM      ( OpenSSL/PEM.hs, dist/dist-sandbox-83693582/build/OpenSSL/PEM.o )
+[31 of 33] Compiling OpenSSL.Session  ( dist/dist-sandbox-83693582/build/OpenSSL/Session.hs, dist/dist-sandbox-83693582/build/OpenSSL/Session.o )
+[32 of 33] Compiling OpenSSL.SSL      ( OpenSSL/SSL.hs, dist/dist-sandbox-83693582/build/OpenSSL/SSL.o )
+[33 of 33] Compiling OpenSSL          ( OpenSSL.hs, dist/dist-sandbox-83693582/build/OpenSSL.o )
+In-place registering HsOpenSSL-0.11.1.1...
+Creating package registration file: /tmp/pkgConf-HsOpenSSL-0.11.117007.1
+Installing library in
+/home/tripod/projects/WisRegister/.cabal-sandbox/lib/x86_64-linux-ghc-7.8.4/HsOpenSSL-0.11.1.1
+Registering HsOpenSSL-0.11.1.1...

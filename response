@@ -1,0 +1,102 @@
+wis automatic registering tool
+connection established
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+<title>Informaèní systém FIT</title>
+<link rel="SHORTCUT ICON" href="/images/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="/common/style.css" type="text/css">
+<script type="text/javascript">
+var ClockMonths = new Array("ledna", "února", "bøezna", "dubna", "kvìtna", "èervna",
+"èervence", "srpna", "záøí", "øíjna", "listopadu", "prosince");
+var ClockElm;
+var ClockDiff=0;
+
+function ClockInit()
+{
+    if (!document.getElementById) return;
+    ClockElm = document.getElementById('clock');
+    if (!ClockElm || !ClockElm.innerHTML) return;
+    var ClockTm = new Date();
+    var datefmt = /^(\d\d?)\. ([^ ]+) (\d{4}) (\d\d):(\d\d):(\d\d)$/;
+    var datep = datefmt.exec(ClockElm.innerHTML);
+    if (datep) {
+	var SrvClock = new Date();
+	SrvClock.setDate(datep[1]);
+	for (var i = 0; i<12; i++) {
+	    if (datep[2] == ClockMonths[i]) {
+		SrvClock.setMonth(i);
+	    }
+	}
+	SrvClock.setYear(datep[3]);
+	SrvClock.setHours(datep[4]);
+	SrvClock.setMinutes(datep[5]);
+	SrvClock.setSeconds(datep[6]);
+	ClockDiff = 500 + SrvClock.getTime()-ClockTm.getTime();
+    }
+    setInterval(UpdateClock, 1000);
+}
+
+function UpdateClock()
+{
+    var hr,min,sec,day,mon,year;
+
+    if (!ClockElm || !ClockElm.innerHTML) return;
+    var ClockTm = new Date();
+    ClockTm.setMilliseconds(ClockDiff+ClockTm.getMilliseconds());
+    if (ClockTm.getFullYear) year = ClockTm.getFullYear();
+    else year = ClockTm.getYear+1900;
+    mon = ClockTm.getMonth();
+    day = ClockTm.getDate();
+    hr = ClockTm.getHours();
+    min = ClockTm.getMinutes();
+    sec = ClockTm.getSeconds();
+    ClockElm.innerHTML = day+'. '+ClockMonths[mon]+' '+year+' '+(hr<=9?'0':'')+hr+':'+(min<=9?'0':'')+min+':'+(sec<=9?'0':'')+sec; 
+}
+</script>
+<base target="_top">
+</head>
+<body onLoad="ClockInit()">
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td valign="bottom" bgcolor="#0063A5" width="100%"><img class="FITlogo" src="/common/img/fit_cz.gif" alt="Fakulta informaèních technologií" border="0" height="24">
+</td><td valign="middle" bgcolor="#0063A5" width="20"><a href="/cgi-bin/codepage"><img class="FITlogo" src="/common/img/globus.gif" alt="Language/Codepage" height="20" width="20" border="0"></a>
+</td><td valign="middle" bgcolor="#0063A5" width="26">
+<a href="/FIT/st/index.php.en"><img class="FITlogo" src="/common/img/flag2_gb.gif" alt="" border="0" width="26" height="20"></a>
+</td>
+</tr>
+</table><script type="text/javascript">
+function showHide(el)
+{
+    var bdiv=document.getElementById(el);
+    if (bdiv==null) return false;
+    if (bdiv.style.display=='block') bdiv.style.display='none';
+    else bdiv.style.display='block';
+    return false;
+}
+
+function mouseOver(el)
+{
+    el.style.borderStyle = 'inset';
+}
+
+function mouseOut(el, sol)
+{
+    if (sol) {
+        el.style.borderStyle = 'outset';
+    } else {
+        el.style.borderStyle = 'outset';
+    }
+}
+
+function mouseClick(ev, uri)
+{
+    if (typeof window.event != 'undefined') window.event.returnValue = false;
+    else ev.preventDefault();
+    window.location = uri;
+}
+</script>
+<table class=noprint width="100%" cellpadding=0 cellspacing=0 style="background-color: #0063a5; border-collapse: separate">
+<tr><th class=menu style="background-color: white; border-style: none" onClick="mouseClick(event, '/FIT/st/index.php')"><a style="font-size: 13px; font-family: Arial,sans-serif; color: #0063a6; background-color: white; text-decoration: none" href="/FIT/st/index.php">home</a></th>
+<th class=menu onClick="mouseClick(event, '/FIT/st/courses.php')" onMouseOver="mouseOver(this)" onMouseOut="mouseOut(this, 1)"><a style="font-size: 13px; font-family: Arial,sans-serif; color: white; background-color: #0063a5; text-decoration: none" href="/FIT/st/courses.php
+ending

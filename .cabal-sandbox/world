@@ -1,0 +1,3 @@
+http-streams -any
+HsOpenSSL -any
+wreq -any
